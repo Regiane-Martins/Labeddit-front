@@ -58,13 +58,11 @@ export const ButtonAccount = styled.a`
     align-items: center;
     color: #FE7E02;
     border-radius:30px;
-    /* padding: 10px; */
     font-family: 'Noto Sans Symbols', sans-serif;;
     font-size: 1.125rem;
     font-weight: 700;
     border: 1px solid #FE7E02;
     text-decoration: none;
-    cursor: pointer;
     width: 350px;
     height: 51px;
 `

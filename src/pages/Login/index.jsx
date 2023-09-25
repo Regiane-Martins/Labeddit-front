@@ -2,8 +2,12 @@ import * as s from "./styled"
 import { Button } from "../../components/buttons/styled"
 import { Container } from "../../components/container"
 import { Line } from "../../components/line/styled"
+import { useNavigate } from "react-router"
+import { goToPost, goToSignup } from "../../routes/coordenatior"
 
 function Login(){
+    const navigate = useNavigate()
+
     return(
         <Container>
         <s.Section>
@@ -16,9 +20,9 @@ function Login(){
                 <s.Input type="password" placeholder="Senha" required></s.Input>
             </s.Form>
             <s.SectionLogin>
-                <Button href="/">Continuar</Button>
+                <Button onClick={()=> goToPost(navigate)}>Continuar</Button>
                 <Line/>
-                <s.ButtonAccount href="/">Crie uma conta</s.ButtonAccount>
+                <s.ButtonAccount onClick={()=> goToSignup(navigate)}>Crie uma conta</s.ButtonAccount>
             </s.SectionLogin>
         </s.Section>
         </Container>

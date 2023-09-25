@@ -69,8 +69,3 @@ export const TypewriterText = styled.div`
   animation: ${typingAnimation} 2s steps(30, end) 1s forwards;
 `;
 
-// // export const LineWrapper = styled.div`
-// //   &:not(:last-child) {
-// //     margin-bottom: 10px; 
-// //   }
-// `
