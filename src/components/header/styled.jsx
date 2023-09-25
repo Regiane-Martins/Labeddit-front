@@ -20,15 +20,9 @@ export const headerSection = styled.div`
 `;
 
 export const Logo = styled.img`
-    /* margin: 0 auto; */
-    height: 29px;
-    width: 28.02px;
 `;
 
 export const Close = styled.img`
-    height: 24px;
-    width: 25.6px;
-    border: 2px solid #A3A3A3
 `
 
 export const Title = styled.p`

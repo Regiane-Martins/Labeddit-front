@@ -1,17 +1,11 @@
-import { useState } from 'react'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
-import Post from './pages/Post'
-import Comment from './pages/Comment'
+
+import Router from './routes/Router'
 
 function App() {
 
   return (
     <>
-    {/* <Login/> */}
-    {/* <Signup/> */}
-    {/* <Post/> */}
-    <Comment/>
+    <Router/>
     </>
   )
 }

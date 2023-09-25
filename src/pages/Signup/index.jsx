@@ -1,15 +1,17 @@
 import { Button } from "../../components/buttons/styled"
 import { Container } from "../../components/container"
 import Header from "../../components/header"
+import { goToPost } from "../../routes/coordenatior"
 import * as s from "./styled"
+import { useNavigate } from "react-router"
 
 function Signup() {
+    const navigate = useNavigate()
+
     return (
         <>
             <Header />
-            <s.TypewriterText>
-            <s.Title>Olá, boas vindas aoLabEddit ;)</s.Title>
-            </s.TypewriterText>
+            <s.Title>Olá, boas vindas ao <s.TypewriterText>LabEddit ;)</s.TypewriterText></s.Title>
             <Container>
                 <s.Section>
                     <s.Form>
@@ -22,7 +24,7 @@ function Signup() {
                         <s.IconNewsletter src="src/assets/img/rectangle.svg" alt="retangulo-check" />
                         <s.SubTitle>Eu concordo em receber emails sobre coisas legais no Labeddit</s.SubTitle>
                     </s.Newsletter>
-                <Button>cadastrar</Button>
+                <Button onClick={()=> goToPost(navigate)}>Cadastrar</Button>
                 </s.Section>
             </Container>
         </>
