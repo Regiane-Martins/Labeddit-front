@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Title = styled.h1`
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 2.0625rem;
     font-weight: 700;
     padding: 13px;
-` 
+`
 
 export const Section = styled.section`
     display: grid;
@@ -19,6 +19,8 @@ export const Form = styled.form`
 `
 
 export const Input = styled.input`
+    border: 1px solid #D5D8DE;
+    border-radius: 5px;
     height: 60px;
     width: 350px;
     &::placeholder{
@@ -50,3 +52,25 @@ export const Newsletter = styled.div`
 export const IconNewsletter = styled.img`
     margin-right: 10px; 
 `
+
+const typingAnimation = keyframes`
+  from {
+    width: 0;
+  }
+  to {
+    width: 80%;
+  }
+`;
+
+export const TypewriterText = styled.div`
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: ${typingAnimation} 2s steps(30, end) 1s forwards;
+`;
+
+// // export const LineWrapper = styled.div`
+// //   &:not(:last-child) {
+// //     margin-bottom: 10px; 
+// //   }
+// `

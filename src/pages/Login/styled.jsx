@@ -31,6 +31,8 @@ export const Form = styled.form`
 
 export const Input = styled.input`
     color: #323941;
+    border: 1px solid #D5D8DE;
+    border-radius: 5px;
     font-size: 1rem;
     font-weight: 400;
     height: 60px;
@@ -45,15 +47,9 @@ export const SectionLogin = styled.div`
     display: grid;
     grid-template-columns: repeat(3 auto);
     gap: 15px;
-`
+`;
 
-export const Line = styled.hr`
-    background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
-    height: 1px;
-    border: 0;
-    width: 350px;
 
-`
 
 export const ButtonAccount = styled.a`
     display: flex;

@@ -1,6 +1,7 @@
 import * as s from "./styled"
-import { Button } from "../../components/button/styled"
+import { Button } from "../../components/buttons/styled"
 import { Container } from "../../components/container"
+import { Line } from "../../components/line/styled"
 
 function Login(){
     return(
@@ -11,12 +12,12 @@ function Login(){
             <s.Title>O projeto de rede social da Labenu</s.Title>
             </s.Banner> 
             <s.Form>
-                <s.Input type="email" placeholder="E-mail"></s.Input>
-                <s.Input type="password" placeholder="Senha"></s.Input>
+                <s.Input type="email" placeholder="E-mail" required></s.Input>
+                <s.Input type="password" placeholder="Senha" required></s.Input>
             </s.Form>
             <s.SectionLogin>
                 <Button href="/">Continuar</Button>
-                <s.Line/>
+                <Line/>
                 <s.ButtonAccount href="/">Crie uma conta</s.ButtonAccount>
             </s.SectionLogin>
         </s.Section>
