@@ -4,6 +4,7 @@ import Header from "../../components/header";
 import { Line } from "../../components/line/styled";
 import * as s from "./styled"
 import { useNavigate } from "react-router";
+import PostCard from "../../components/post";
 
 function Post(){
     const navigate = useNavigate()
@@ -14,6 +15,7 @@ function Post(){
         <s.Content>Escreva seu post...</s.Content>
         <ButtonPost type="submit">Postar</ButtonPost>
         <Line/>
+        <PostCard/>
         </s.Form>
         </>
     )
