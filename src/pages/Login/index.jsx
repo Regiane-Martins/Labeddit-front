@@ -3,17 +3,16 @@ import { Button } from "../../components/buttons/styled"
 import { Container } from "../../components/container"
 import { Line } from "../../components/line/styled"
 import { useNavigate } from "react-router"
-import { goToPost, goToSignup } from "../../routes/coordenatior"
-import { userForm } from "../../hooks/useForm"
+import {goToSignup } from "../../routes/coordenatior"
+import { useForm } from "../../hooks/useForm"
 
 function Login(){
     const navigate = useNavigate()
-    const [form, onChange, resetForm] = userForm({email: "", senha: ""})
+    const [form, onChange, resetForm] = useForm({email: "", password: ""})
 
-    const sendFormLogin = (event)=>{
-        event.preventDefault()
-        console.log(`${form.email}`);
-        console.log(`${form.senha}`);
+    const sendFormLogin = (e)=>{
+        e.preventDefault()
+        resetForm()
     }
 
     return(
@@ -27,20 +26,22 @@ function Login(){
                 <s.Input 
                 type="email" 
                 placeholder="E-mail" 
+                name="email"
                 value={form.email}
                 onChange={onChange}
-                required>
-                </s.Input>
-
+                required
+                />
+                
                 <s.Input 
                 type="password" 
-                placeholder="Senha" 
-                value={form.senha}
+                placeholder="Senha"
+                name="password"
+                value={form.password}
                 onChange={onChange}
-                required>    
-                </s.Input>
-                
-                <Button onClick={()=> goToPost(navigate)}>Continuar</Button>
+                minLength={5}
+                required
+                />        
+                <Button>Continuar</Button>
             </s.Form>
             <s.SectionLogin>
                 <Line/>

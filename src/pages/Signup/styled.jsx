@@ -15,7 +15,7 @@ export const Section = styled.section`
 
 export const Form = styled.form`
     display: grid;
-    gap: 10px;
+    gap: 15px;
 `
 
 export const Input = styled.input`
@@ -47,10 +47,10 @@ export const Newsletter = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
+    gap: 10px;
 `
 
 export const IconNewsletter = styled.img`
-    margin-right: 10px; 
 `
 
 const typingAnimation = keyframes`

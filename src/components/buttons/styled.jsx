@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.a`
+export const Button = styled.button`
     display: flex;
     background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
     justify-content: center;
