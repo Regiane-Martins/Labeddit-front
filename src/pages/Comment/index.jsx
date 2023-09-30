@@ -5,19 +5,19 @@ import { Line } from "../../components/line/styled"
 import PostCard from "../../components/post"
 import * as s from "./styled"
 
-function Comment(){
-    return(
+function Comment() {
+    return (
         <>
-        <Header/>
-        <s.ContainerComment>
-        <PostCard/>
-        <s.SectionComment>
-            <s.Content>Adicionar comentário</s.Content>
-            <ButtonPost>Responder</ButtonPost>
-            <Line/>
-        </s.SectionComment>
-        <CommentPost/>
-        </s.ContainerComment>
+            <Header />
+            <s.ContainerComment>
+                <PostCard />
+                <s.SectionComment>
+                    <s.Content>Adicionar comentário</s.Content>
+                    <ButtonPost>Responder</ButtonPost>
+                    <Line />
+                </s.SectionComment>
+                <CommentPost />
+            </s.ContainerComment>
         </>
     )
 }

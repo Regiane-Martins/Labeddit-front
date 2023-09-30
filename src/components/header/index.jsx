@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 function Header() {
     const navigate = useNavigate()
     const logo = (
-        <s.Logo src="src/assets/img/logo.svg" alt="logo"/> 
+        <s.Logo onClick={()=> goToLogin(navigate)} src="src/assets/img/logo.svg" alt="logo"/> 
     )
 
     const close = (

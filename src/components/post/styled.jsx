@@ -33,7 +33,6 @@ export const FlexListItem = styled.div`
 `
 
 export const Icon = styled.img`
-    
 `
 
 export const LikeDislike = styled.div`

@@ -1,20 +1,21 @@
 import * as s from "./styled"
 
-function PostCard() {
+function PostCard(props) {
+    const {post} = props
     return (
         <s.Section>
             <s.List>
-                <s.Identity>Enviado por: id</s.Identity>
-                <s.ContentPost>Porque a maioria dos desenvolvedores usam Linux? ou as empresas de tecnologia usam Linux ?</s.ContentPost>
+                <s.Identity>Enviado por:{post.creator.name}</s.Identity>
+                <s.ContentPost>{post.content}</s.ContentPost>
                 <s.FlexListItem>
                     <s.LikeDislike>
                         <s.Icon src="src/assets/img/like.svg" alt="like" />
-                        <s.Number>1.2k</s.Number>
+                        <s.Number>{post.likes - post.dislikes}</s.Number>
                         <s.Icon src="src/assets/img/dislike.svg" alt="dislike" />
                     </s.LikeDislike>
                     <s.Comment>
                         <s.Icon src="src/assets/img/fluent_comment.svg" alt="comment" />
-                        <s.Number>132</s.Number>
+                        <s.Number>{post.comments}</s.Number>
                     </s.Comment>
                 </s.FlexListItem>
             </s.List>

@@ -1,17 +1,24 @@
+import { useContext } from "react"
 import { Button } from "../../components/buttons/styled"
 import { Container } from "../../components/container"
 import Header from "../../components/header"
 import { useForm } from "../../hooks/useForm"
 import * as s from "./styled"
 import { useNavigate } from "react-router"
+import { ContextGlobal } from "../../components/global/contextGlobal"
+import { goToPost } from "../../routes/coordenatior"
 
 function Signup() {
     const navigate = useNavigate()
     const [form, onChange, resetForm] = useForm({ name: "", email: "", password: "" })
 
-    const sendFormSignup = (e) => {
+    const context = useContext(ContextGlobal)
+
+    const sendFormSignup = async(e) => {
         e.preventDefault()
+        await context.SignupAPI(form)
         resetForm()
+        goToPost(navigate)
     }
 
     return (
@@ -47,7 +54,7 @@ function Signup() {
                         />
                         <s.SubTitle>Ao continuar, você concorda com o nosso <s.Link href="/">Contrato de usuário</s.Link> e nossa <s.Link href="/">Política de Privacidade</s.Link></s.SubTitle>
                         <s.Newsletter>
-                            <input type="checkbox"/>
+                            <input type="checkbox" />
                             <s.SubTitle>Eu concordo em receber emails sobre coisas legais no Labeddit</s.SubTitle>
                         </s.Newsletter>
                         <Button>Cadastrar</Button>

@@ -18,7 +18,7 @@ export const Button = styled.button`
     height: 51px;
 `
 
-export const ButtonPost = styled.a`
+export const ButtonPost = styled.button`
     display: flex;
     background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
     justify-content: center;
