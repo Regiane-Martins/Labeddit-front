@@ -17,30 +17,31 @@ function Post() {
     const [post, setPost] = useState([])
     const [form, onChange, resetForm] = useForm({ content: "" })
 
+    const token = context.getToken()
+
 
     const sendPost = async (body) => {
         const PATH = BASE_URL + "/posts"
-        console.log(body);
-        await axios.post(PATH, body)
+        await axios.post(PATH, body, { headers: { Authorization: token } })
             .then(response => {
             })
             .catch(error => {
-                console.log(error);
-            })
 
+            })
     }
 
     const loadPost = async () => {
-        const token = context.getToken()
         const result = await axios.get(`${BASE_URL}/posts`, { headers: { Authorization: token } })
         setPost(result.data)
 
     }
+
     const sendForm = (e) => {
         e.preventDefault()
         sendPost(form)
         resetForm()
         context.setReload(!context.reload)
+        loadPost()
     }
 
     useEffect(() => {
@@ -52,21 +53,23 @@ function Post() {
             <Header />
             <s.Form onSubmit={sendForm}>
                 <s.Content
-                name="content"
-                value={form.content}
-                onChange={onChange}
-                required
-                placeholder="Escreva seu post..."
+                    name="content"
+                    value={form.content}
+                    onChange={onChange}
+                    required
+                    placeholder="Escreva seu post..."
                 ></s.Content>
-                <ButtonPost type="submit">Postar</ButtonPost>
+                <ButtonPost>Postar</ButtonPost>
                 <Line />
             </s.Form>
+            <s.Section>
 
-            {
-                post?.map((post) =>
-                    <PostCard post={post} key={post.id} />
-                )
-            }
+                {
+                    post?.map((post) =>
+                        <PostCard post={post} key={post.id} />
+                    )
+                }
+            </s.Section>
         </>
     )
 }

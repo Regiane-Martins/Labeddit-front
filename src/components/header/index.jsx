@@ -1,9 +1,18 @@
+import { useContext } from "react"
 import { goToLogin, goToPost } from "../../routes/coordenatior"
 import * as s from "./styled"
 import { useNavigate } from "react-router"
+import { ContextGlobal } from "../global/contextGlobal"
 
 function Header() {
     const navigate = useNavigate()
+    const context = useContext(ContextGlobal)
+
+    const reset = ()=>{
+        context.deleteToken()
+        goToLogin(navigate)
+    }
+
     const logo = (
         <s.Logo onClick={()=> goToLogin(navigate)} src="src/assets/img/logo.svg" alt="logo"/> 
     )
@@ -17,8 +26,9 @@ function Header() {
     )
 
     const linkLogout = (
-        <s.Title onClick={()=>goToLogin(navigate)}>Logout</s.Title>
+        <s.Title onClick={reset}>Logout</s.Title>
     )
+
     return (
         <s.Section>
                 

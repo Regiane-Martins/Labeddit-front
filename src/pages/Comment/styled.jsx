@@ -29,3 +29,8 @@ export const Content = styled.textarea`
     width: 100%;
 `
 ;
+
+export const Section = styled.section`
+       max-width: 428px;
+       padding: 0 20px; 
+    `

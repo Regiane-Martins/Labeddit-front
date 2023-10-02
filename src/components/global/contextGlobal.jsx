@@ -30,7 +30,7 @@ export default function LabedditProvider({ children }) {
                 setIsLogged(true)
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
 
     }
