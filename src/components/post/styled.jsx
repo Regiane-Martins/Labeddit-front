@@ -32,9 +32,6 @@ export const FlexListItem = styled.div`
     gap: 15px;
 `
 
-export const Icon = styled.img`
-`
-
 export const LikeDislike = styled.div`
     align-items: center;
     border: 0.8px solid #ECECEC;
@@ -60,3 +57,4 @@ export const Number = styled.p`
     font-size: 0.5975rem;
     font-weight: 700;
 `
+

@@ -1,22 +1,56 @@
 import axios from "axios"
 import { BASE_URL } from "../../constant/BASE_URL"
 import * as s from "./styled"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { ContextGlobal } from "../global/contextGlobal"
+import { ReactComponent as LikeIcon } from "../../assets/img/like.svg"
+import { ReactComponent as DislikeIcon } from "../../assets/img/dislike.svg"
+import { ReactComponent as CommentIcon } from "../../assets/img/fluent_comment.svg"
+import { goToComment } from "../../routes/coordenatior"
+import { useNavigate } from "react-router-dom"
+
+const LIKE_NEUTRAL = 'like-neutral'
+const LIKE_UP = 'like-up'
+const LIKE_DOWN = 'like-down'
 
 function PostCard(props) {
-    const {post} = props
+    const { post } = props
     const context = useContext(ContextGlobal)
+    const navigate = useNavigate()
 
-    const [like, setLike] = useState(true)
+    const [likes, setLikes] = useState(0)
+    const [likeStatus, setLikeStatus] = useState(LIKE_NEUTRAL)
 
     const token = context.getToken()
 
-    const likeDislike = async (like)=>{
-        const PATH = `${BASE_URL} + /posts/${post.id}/${like}`
-        await axios.put(PATH, like, { headers: { Authorization: token } })
+    const likeDislike = async (like) => {
+        try {
+            const response = await axios.put(`${BASE_URL}/posts/${post.id}/like`, { like }, { headers: { Authorization: token } })
+
+            if (response.status !== 200) {
+                return
+            }
+
+            if (like) {
+                setLikes(likes + 1)
+                setLikeStatus(LIKE_UP)
+            } else {
+                setLikes(likes - 1)
+                setLikeStatus(LIKE_DOWN)
+            }
+        } catch (e) {
+            console.error(e)
+            alert(e.response.data)
+        }
     }
 
+    useEffect(() => {
+        setLikes(post.likes - post.dislikes)
+    }, [])
+
+    const likeIconFillColor = (status) => {
+        return likeStatus === status ? 'red' : '#6F6F6F'
+    }
 
     return (
         <s.Section>
@@ -25,12 +59,12 @@ function PostCard(props) {
                 <s.ContentPost>{post.content}</s.ContentPost>
                 <s.FlexListItem>
                     <s.LikeDislike>
-                        <s.Icon src="src/assets/img/like.svg" alt="like" />
-                        <s.Number>{post.likes - post.dislikes}</s.Number>
-                        <s.Icon src="src/assets/img/dislike.svg" alt="dislike" />
+                        <LikeIcon fill={likeIconFillColor(LIKE_UP)} onClick={() => likeDislike(true)} />
+                        <s.Number>{likes}</s.Number>
+                        <DislikeIcon fill={likeIconFillColor(LIKE_DOWN)} onClick={() => likeDislike(false)} />
                     </s.LikeDislike>
                     <s.Comment>
-                        <s.Icon src="src/assets/img/fluent_comment.svg" alt="comment" />
+                        <CommentIcon />
                         <s.Number>{post.comments}</s.Number>
                     </s.Comment>
                 </s.FlexListItem>

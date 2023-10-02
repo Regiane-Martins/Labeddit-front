@@ -1,4 +1,4 @@
-import { Container } from "postcss";
+
 import { ButtonPost } from "../../components/buttons/styled";
 import Header from "../../components/header";
 import { Line } from "../../components/line/styled";
