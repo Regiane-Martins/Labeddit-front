@@ -46,7 +46,7 @@ function Header() {
                     <s.headerSection>{linkLogout}</s.headerSection>   
                     </>
                 )}
-                {window.location.href.includes("comment") && (
+                {window.location.href.includes("comments") && (
                     <>
                     <s.headerSection>{close}</s.headerSection>
                     <s.headerSection>{logo}</s.headerSection>

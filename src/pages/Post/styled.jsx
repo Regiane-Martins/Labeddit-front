@@ -27,6 +27,7 @@ export const Content = styled.textarea`
 export const Section = styled.section`
     display: flex;
     flex-direction: column;
+    margin: 30px auto;
     gap: 15px;
     max-width: 428px;
     padding: 0 20px; 

@@ -1,6 +1,7 @@
 import axios from "axios"
 import { createContext, useState } from "react"
 import { BASE_URL } from "../../constant/BASE_URL"
+import { goToComment } from "../../routes/coordenatior"
 
 export const ContextGlobal = createContext()
 
@@ -17,7 +18,8 @@ export default function LabedditProvider({ children }) {
                 setIsLogged(true)
             })
             .catch(error => {
-                //fazer um modal
+                alert(error.response.data)
+
             })
 
     }
@@ -30,7 +32,7 @@ export default function LabedditProvider({ children }) {
                 setIsLogged(true)
             })
             .catch(error => {
-                // console.log(error);
+                alert(error.response.data)
             })
 
     }
@@ -48,6 +50,22 @@ export default function LabedditProvider({ children }) {
         localStorage.removeItem("token")
     }
 
+    const headers = {
+        headers:{
+            Authorization: getToken()
+        }
+    }
+
+    const getComments = async (postId) => {
+        try {
+            const PATH = BASE_URL + "/comments/"
+            const result =  await axios.get(PATH, headers)
+            console.log(result);
+            return result
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const context = {
         isLogged,
@@ -58,7 +76,8 @@ export default function LabedditProvider({ children }) {
         LoginAPI,
         SignupAPI,
         reload,
-        setReload
+        setReload,
+        getComment: getComments
     }
 
     return (

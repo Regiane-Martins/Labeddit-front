@@ -26,7 +26,7 @@ function Router() {
                         <Post />
                     </ProtectedRoute>}
                 />
-                <Route path={"/comment"} element={
+                <Route path={"/comments/:postId"} element={
                     <ProtectedRoute redirectTo={'/'}>
                         <Comment />
                     </ProtectedRoute>}

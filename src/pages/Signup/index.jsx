@@ -14,7 +14,7 @@ function Signup() {
 
     const context = useContext(ContextGlobal)
 
-    const sendFormSignup = async(e) => {
+    const sendFormSignup = async (e) => {
         e.preventDefault()
         await context.SignupAPI(form)
         resetForm()
@@ -24,9 +24,9 @@ function Signup() {
     return (
         <>
             <Header />
-            <s.Title>Olá, boas vindas ao <s.TypewriterText>LabEddit ;)</s.TypewriterText></s.Title>
             <Container>
                 <s.Section>
+                    <s.Title>Olá, boas vindas ao <s.TypewriterText>LabEddit ;)</s.TypewriterText></s.Title>
                     <s.Form onSubmit={sendFormSignup}>
                         <s.Input
                             type="text"

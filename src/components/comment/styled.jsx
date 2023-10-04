@@ -4,6 +4,12 @@ export const Section = styled.section`
     background: #FBFBFB;
     border: 1px solid #E0E0E0;
     border-radius: 0.75rem;
+    /* display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    gap: 15px;
+    max-width: 428px;
+    padding: 0 20px;  */
 `
 
 export const List = styled.div`
