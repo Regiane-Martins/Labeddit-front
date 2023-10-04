@@ -20,8 +20,6 @@ function Post() {
     const PATH = BASE_URL + "/posts";
     await axios
       .post(PATH, body, { headers: { Authorization: token } })
-      .then((response) => {})
-      .catch((error) => {});
   };
 
   const loadPost = async () => {
@@ -67,6 +65,7 @@ function Post() {
             likes={likes}
             dislikes={dislikes}
             comments={comments}
+            posts={posts}
           />
         ))}
       </s.Section>

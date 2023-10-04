@@ -14,11 +14,11 @@ function Header() {
     }
 
     const logo = (
-        <s.Logo onClick={()=> goToLogin(navigate)} src="src/assets/img/logo.svg" alt="logo"/> 
+        <s.Logo onClick={()=> goToLogin(navigate)} src="/src/assets/img/logo.svg" alt="logo"/> 
     )
 
     const close = (
-        <img onClick={()=> goToPost(navigate)} src="src/assets/img/close.svg" alt="close"/>
+        <img onClick={()=> goToPost(navigate)} src="/src/assets/img/close.svg" alt="close"/>
     )
 
     const linkSignup = (

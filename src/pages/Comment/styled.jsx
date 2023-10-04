@@ -11,7 +11,7 @@ export const ContainerComment = styled.section`
    padding: 0 20px;
 `
 
-export const SectionComment = styled.div`
+export const SectionComment = styled.form`
     display: flex;
     flex-direction: column;
     gap: 15px;

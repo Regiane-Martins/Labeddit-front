@@ -9,9 +9,9 @@ function CommentCard(){
         </s.List>
         <s.FlexListItem>
             <s.LikeDislike>
-            <s.Icon src="src/assets/img/like.svg" alt="like"/>
+            <s.Icon src="/src/assets/img/like.svg" alt="like"/>
             <s.Number>351</s.Number>
-            <s.Icon src="src/assets/img/dislike.svg" alt="dislike"/>
+            <s.Icon src="/src/assets/img/dislike.svg" alt="dislike"/>
             </s.LikeDislike>
         </s.FlexListItem>
         </s.Section>
