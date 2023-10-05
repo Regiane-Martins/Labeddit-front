@@ -9,37 +9,35 @@ import * as s from "./styled";
 import { BASE_URL } from "../../constant/BASE_URL";
 import axios from "axios";
 import { ContextGlobal } from "../../components/global/contextGlobal";
-import { useLocation, useRoutes } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-
-const useFindPath = () => {
+const useFindPostId = () => {
   const location = useLocation();
-  const [currentPath, setCurrentPath] = useState();
+  const [postId, setPostId] = useState('');
+
   useEffect(() => {
-      setCurrentPath(location.pathname);
+      setPostId(location.pathname.split('/')[2]);
   }, [location]);
-  return currentPath;
+  
+  return postId;
 };
 
-
-
-
 function Comment() {
-  console.log(useFindPath());
+  console.log(useFindPostId());
   const [form, onChange, resetForm] = useForm({ content: "" });
   const [comments, setComments] = useState([]);
   const context = useContext(ContextGlobal);
 
   const token = context.getToken();
-  const path = useFindPath()
+  const postId = useFindPostId()
 
   const sendComment = async (body) => {
-    const PATH = BASE_URL + `${path}`;
+    const PATH = BASE_URL + `${postId}`;
     await axios.post(PATH, body, { headers: { Authorization: token } });
   };
 
   const loadComment = async () => {
-    const result = await axios.get(`${BASE_URL}${path}`, {
+    const result = await axios.get(`${BASE_URL}${postId}`, {
       headers: { Authorization: token },
     });
     setComments(result.data);
@@ -63,7 +61,7 @@ function Comment() {
         <PostCard
           id={"123"}
           comments={1}
-          content={"bla"}
+          content={"Porque a maioria dos desenvolvedores usam Linux? ou as empresas de tecnologia usam Linux ?"}
           creator={{ name: "Eu" }}
           likes={1}
           dislikes={0}
@@ -79,7 +77,18 @@ function Comment() {
           <ButtonPost>Responder</ButtonPost>
           <Line />
         </s.SectionComment>
-        <CommentCard />
+        {
+          comments?.map(({id, content, like, dislike})=>(
+            <CommentCard 
+              key={id}
+              id={id}
+              content={content}
+              like={like}
+              dislike={dislike}
+              postId={postId}
+            />
+          ))
+        }
       </s.ContainerComment>
     </>
   );

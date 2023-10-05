@@ -32,6 +32,6 @@ export const ButtonPost = styled.button`
     border: none;
     text-decoration: none;
     text-transform: capitalize;
-    width: 350px;
+    width: 100%;
     height: 51px;
 `

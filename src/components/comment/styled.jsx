@@ -4,12 +4,7 @@ export const Section = styled.section`
     background: #FBFBFB;
     border: 1px solid #E0E0E0;
     border-radius: 0.75rem;
-    /* display: flex;
-    flex-direction: column;
-    margin: 30px auto;
-    gap: 15px;
-    max-width: 428px;
-    padding: 0 20px;  */
+    padding: 7px;
 `
 
 export const List = styled.div`
@@ -18,7 +13,7 @@ export const List = styled.div`
     font-family: 'IBM Plex Sans';
     gap: 20px;
     list-style-type: none;
-    padding: 10px;
+    padding: 5px;
 `
 export const Identity = styled.p`
     color: #6F6F6F;

@@ -4,7 +4,6 @@ export const Title = styled.h1`
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 2.0625rem;
     font-weight: 700;
-    padding: 13px;
 `
 
 export const Section = styled.section`
