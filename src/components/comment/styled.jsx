@@ -5,6 +5,7 @@ export const Section = styled.section`
     border: 1px solid #E0E0E0;
     border-radius: 0.75rem;
     padding: 7px;
+    width: 100%;
 `
 
 export const List = styled.div`

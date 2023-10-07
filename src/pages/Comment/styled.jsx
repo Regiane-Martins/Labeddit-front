@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerComment = styled.section`
-    align-items: center;
+   align-items: center;
    display: flex;
    flex-direction: column;
    gap: 20px;
@@ -31,7 +31,3 @@ export const Content = styled.textarea`
 `
 ;
 
-export const Section = styled.section`
-       max-width: 428px;
-       padding: 0 20px; 
-    `

@@ -4,6 +4,7 @@ export const Section = styled.section`
     background: #FBFBFB;
     border: 1px solid #E0E0E0;
     border-radius: 0.75rem;
+    width: 100%;
 `
 
 export const List = styled.div`
@@ -13,6 +14,7 @@ export const List = styled.div`
     gap: 20px;
     list-style-type: none;
     padding: 10px;
+    /* max-width: 100%; */
 `
 
 export const Identity = styled.p`
