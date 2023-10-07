@@ -13,7 +13,7 @@ const LIKE_NEUTRAL = "like-neutral";
 const LIKE_UP = "like-up";
 const LIKE_DOWN = "like-down";
 
-function PostCard({ id, content, creator, likes, dislikes, comments}) {
+function PostCard({ id, content, creator, likes, dislikes, comments }) {
   const context = useContext(ContextGlobal);
   const navigate = useNavigate();
 
@@ -49,29 +49,16 @@ function PostCard({ id, content, creator, likes, dislikes, comments}) {
 
   useEffect(() => {
     setLikeCount(likes - dislikes);
-  }, []);
+  }, [likes, dislikes]);
 
   const likeIconFillColor = (status) => {
     return likeStatus === status ? "red" : "#6F6F6F";
   };
 
-  // const findPostById = (id) =>{
-  //   const result = posts.find((post)=>post.id === id)
-  //   const dataPost = {
-  //       name: result.creator.name,
-  //       content: result.content,
-  //       likes: result.likes,
-  //       dislikes: result.dislikes,
-  //       comments: result.comments
-  //   }
-  //   return dataPost
-  // }
-
-
   return (
     <s.Section>
       <s.List>
-        <s.Identity>Enviado por: {creator.name}</s.Identity>
+        <s.Identity>Enviado por: {creator?.name}</s.Identity>
         <s.ContentPost>{content}</s.ContentPost>
         <s.FlexListItem>
           <s.LikeDislike>
@@ -86,7 +73,7 @@ function PostCard({ id, content, creator, likes, dislikes, comments}) {
             />
           </s.LikeDislike>
           <s.Comment>
-            <CommentIcon onClick={() => goToComment(navigate, id)}/>
+            <CommentIcon onClick={() => goToComment(navigate, id)} />
             <s.Number>{comments}</s.Number>
           </s.Comment>
         </s.FlexListItem>

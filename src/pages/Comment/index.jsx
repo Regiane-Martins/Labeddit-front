@@ -11,60 +11,69 @@ import axios from "axios";
 import { ContextGlobal } from "../../components/global/contextGlobal";
 import { useLocation } from "react-router-dom";
 
-const useFindPostId = () => {
-  const location = useLocation();
-  const [postId, setPostId] = useState('');
-
-  useEffect(() => {
-      setPostId(location.pathname.split('/')[2]);
-  }, [location]);
-  
-  return postId;
-};
-
 function Comment() {
-  console.log(useFindPostId());
   const [form, onChange, resetForm] = useForm({ content: "" });
   const [comments, setComments] = useState([]);
   const context = useContext(ContextGlobal);
+  const location = useLocation();
+  const [postId, setPostId] = useState("");
+  const [post, setPost] = useState(null);
 
   const token = context.getToken();
-  const postId = useFindPostId()
+
+  useEffect(() => {
+    setPostId(location.pathname.split("/")[2]);
+  }, [location]);
 
   const sendComment = async (body) => {
-    const PATH = BASE_URL + `${postId}`;
-    await axios.post(PATH, body, { headers: { Authorization: token } });
-  };
-
-  const loadComment = async () => {
-    const result = await axios.get(`${BASE_URL}${postId}`, {
+    await axios.post(`${BASE_URL}/comments/${postId}`, body, {
       headers: { Authorization: token },
     });
-    setComments(result.data);
+  };
+
+  const loadPost = async () => {
+    const result = await axios.get(`${BASE_URL}/posts`, {
+      headers: { Authorization: token },
+    });
+
+    const newPost = result.data.find((i) => i.id === postId);
+
+    setPost({ ...newPost });
+  };
+
+  const loadComments = async () => {
+    const result = await axios.get(`${BASE_URL}/comments`, {
+      headers: { Authorization: token },
+    });
+
+    setComments(result.data.filter((i) => i.creator.post_id === postId));
   };
 
   const sendForm = (e) => {
     e.preventDefault();
     sendComment(form);
     resetForm();
-    loadComment();
+    loadComments();
   };
 
   useEffect(() => {
-    loadComment();
-  }, []);
+    if (postId) {
+      loadComments();
+      loadPost();
+    }
+  }, [postId]);
 
   return (
     <>
       <Header />
       <s.ContainerComment>
         <PostCard
-          id={"123"}
-          comments={1}
-          content={"Porque a maioria dos desenvolvedores usam Linux? ou as empresas de tecnologia usam Linux ?"}
-          creator={{ name: "Eu" }}
-          likes={1}
-          dislikes={0}
+          id={post?.id}
+          comments={post?.comments}
+          content={post?.content}
+          creator={post?.creator}
+          likes={post?.likes || 0}
+          dislikes={post?.dislikes || 0}
         />
         <s.SectionComment onSubmit={sendForm}>
           <s.Content
@@ -77,18 +86,17 @@ function Comment() {
           <ButtonPost>Responder</ButtonPost>
           <Line />
         </s.SectionComment>
-        {
-          comments?.map(({id, content, like, dislike})=>(
-            <CommentCard 
-              key={id}
-              id={id}
-              content={content}
-              like={like}
-              dislike={dislike}
-              postId={postId}
-            />
-          ))
-        }
+        {comments?.map(({ id, content, creator, likes, dislikes }) => (
+          <CommentCard
+            key={id}
+            id={id}
+            content={content}
+            creator={creator}
+            likes={likes}
+            dislikes={dislikes}
+            postId={postId}
+          />
+        ))}
       </s.ContainerComment>
     </>
   );
