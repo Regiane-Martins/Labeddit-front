@@ -4,6 +4,8 @@ export const Section = styled.section`
     background: #FBFBFB;
     border: 1px solid #E0E0E0;
     border-radius: 0.75rem;
+    padding: 7px;
+    width: 100%;
 `
 
 export const List = styled.div`
@@ -12,7 +14,7 @@ export const List = styled.div`
     font-family: 'IBM Plex Sans';
     gap: 20px;
     list-style-type: none;
-    padding: 10px;
+    padding: 5px;
 `
 export const Identity = styled.p`
     color: #6F6F6F;
@@ -32,7 +34,6 @@ export const FlexListItem = styled.div`
 `
 
 export const Icon = styled.img`
-    
 `
 
 export const LikeDislike = styled.div`

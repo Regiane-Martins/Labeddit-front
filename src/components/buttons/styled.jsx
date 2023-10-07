@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.a`
+export const Button = styled.button`
     display: flex;
     background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
     justify-content: center;
@@ -18,7 +18,7 @@ export const Button = styled.a`
     height: 51px;
 `
 
-export const ButtonPost = styled.a`
+export const ButtonPost = styled.button`
     display: flex;
     background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%);
     justify-content: center;
@@ -32,6 +32,6 @@ export const ButtonPost = styled.a`
     border: none;
     text-decoration: none;
     text-transform: capitalize;
-    width: 350px;
+    width: 100%;
     height: 51px;
 `

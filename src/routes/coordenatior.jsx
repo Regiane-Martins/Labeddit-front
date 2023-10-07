@@ -3,13 +3,13 @@ export const goToLogin = (navigate) => {
 };
 
 export const goToSignup = (navigate) => {
-    navigate("/signup/");
+    navigate("/signup");
 };
 
 export const goToPost = (navigate) => {
     navigate("/post");
 };
 
-export const goToComment = (navigate) => {
-    navigate("/comment");
+export const goToComment = (navigate, postId) => {
+    navigate("/comments/" + postId);
 }

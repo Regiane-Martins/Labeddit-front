@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Form = styled.form`
    align-items: center;
    display: flex;
@@ -9,7 +10,7 @@ export const Form = styled.form`
    margin: 30px auto;
    max-width: 428px;
    padding: 0 20px;
-`
+   `
 
 export const Content = styled.textarea`
     background-color: #EDEDED;
@@ -21,5 +22,13 @@ export const Content = styled.textarea`
     height: 131px;
     padding: 15px;
     width: 100%;
-;
-`
+    `
+
+export const Section = styled.section`
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    gap: 15px;
+    max-width: 428px;
+    padding: 0 20px; 
+    `

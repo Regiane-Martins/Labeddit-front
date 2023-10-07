@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerComment = styled.section`
-    align-items: center;
+   align-items: center;
    display: flex;
    flex-direction: column;
    gap: 20px;
@@ -11,10 +11,11 @@ export const ContainerComment = styled.section`
    padding: 0 20px;
 `
 
-export const SectionComment = styled.div`
+export const SectionComment = styled.form`
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
 `
 
 export const Content = styled.textarea`
@@ -29,3 +30,4 @@ export const Content = styled.textarea`
     width: 100%;
 `
 ;
+
