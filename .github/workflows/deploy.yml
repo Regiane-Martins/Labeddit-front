@@ -18,7 +18,7 @@ jobs:
       - name: Deploy
         uses: dswistowski/surge-sh-action@v1
         with:
-          domain: regiane-labeddit.surge.sh
+          domain: labeddit-regiane.surge.sh
           project: ./build
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}

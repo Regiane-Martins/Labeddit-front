@@ -2,7 +2,7 @@
 
 #### O Labeddit Full Stack é um desafio final do bootcamp Web Full Stack da Labenu, que abrange desenvolvimento em backend e frontend. O foco é criar um aplicativo com design mobile-first, com ênfase na criação de uma API, implementando funcionalidades como autenticação de usuários e gerenciamento de banco de dados.
 
-[Clique para conferir o site!](...)
+[Clique para conferir o site!](https://labeddit-regiane.surge.sh/)
 
 [Repositório back-end](https://github.com/Regiane-Martins/Labeddit-back)
 
@@ -10,8 +10,8 @@
 - Site constitui em 4 páginas: Login, Signup, Postagem e Comentários.
 
 #### Página de Login
-- Formulário de login contendo cammpos para e-mail e senha.
-- Botão criar conta direcionando o usuário a página de Signup.
+- Formulário de login contendo campos para e-mail e senha.
+- Botão "criar conta" direcionando o usuário a página de Signup.
 
 ![Login](.github/prints/login.png)
 
