@@ -11,9 +11,6 @@ export const Banner = styled.div`
     flex-direction: column;
 `
 
-export const Logo = styled.img`
-`
-
 export const Title = styled.p`
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1rem;

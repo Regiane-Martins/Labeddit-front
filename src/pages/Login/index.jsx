@@ -7,6 +7,7 @@ import { goToPost, goToSignup } from "../../routes/coordenatior"
 import { useForm } from "../../hooks/useForm"
 import { useContext} from "react"
 import { ContextGlobal } from "../../components/global/contextGlobal"
+import { ReactComponent as PrimaryLogo } from '../../assets/img/logo-full.svg'
 
 function Login() {
     const navigate = useNavigate()
@@ -25,7 +26,7 @@ function Login() {
         <Container>
             <s.Section>
                 <s.Banner>
-                    <s.Logo src="src/assets/img/logo-full.svg" alt="logo-principal" />
+                    <PrimaryLogo/>
                     <s.Title>O projeto de rede social da Labenu</s.Title>
                 </s.Banner>
                 <s.Form onSubmit={sendFormLogin}>
