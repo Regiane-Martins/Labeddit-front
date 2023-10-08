@@ -3,6 +3,8 @@ import { goToLogin, goToPost } from "../../routes/coordenatior"
 import * as s from "./styled"
 import { useNavigate } from "react-router"
 import { ContextGlobal } from "../global/contextGlobal"
+import { ReactComponent as Logo } from '../../assets/img/logo.svg'
+import { ReactComponent as Close } from '../../assets/img/close.svg'
 
 function Header() {
     const navigate = useNavigate()
@@ -14,11 +16,11 @@ function Header() {
     }
 
     const logo = (
-        <s.Logo onClick={()=> goToLogin(navigate)} src="/src/assets/img/logo.svg" alt="logo"/> 
+        <Logo onClick={()=> goToLogin(navigate)}/> 
     )
 
     const close = (
-        <img onClick={()=> goToPost(navigate)} src="/src/assets/img/close.svg" alt="close"/>
+        <Close onClick={()=> goToPost(navigate)}/>
     )
 
     const linkSignup = (
